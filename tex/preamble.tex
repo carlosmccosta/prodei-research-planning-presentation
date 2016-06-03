@@ -1,0 +1,87 @@
+\documentclass[aspectratio=43,xcolor=x11names,compress]{beamer}
+
+%---------------------------------------------------------------------------------------------------
+% Beamer configuration
+%---------------------------------------------------------------------------------------------------
+
+\usepackage{etoolbox}
+
+\newtoggle{safetymargin}
+\togglefalse{safetymargin}
+
+\iftoggle{safetymargin}{
+	\geometry{paperwidth=128mm,paperheight=96mm}
+	\usepackage[width=138mm,height=106mm,frame,noinfo]{crop}
+	\voffset\stockheight
+	\advance\voffset-\paperheight
+	\voffset.5\voffset
+	\hoffset\stockwidth
+	\advance\hoffset-\paperwidth
+	\hoffset.5\hoffset
+}
+
+
+\setbeamertemplate{footline}[page number]{}
+\setbeamerfont{footline}{size=\fontsize{8}{10}\selectfont}
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{caption}[numbered]
+
+\useoutertheme[subsection=false,shadow]{miniframes}
+\useinnertheme{default}
+\usefonttheme{serif}
+
+\setbeamerfont{title like}{shape=\scshape}
+\setbeamerfont{frametitle}{shape=\scshape}
+
+\setbeamercolor*{lower separation line head}{bg=DeepSkyBlue4}
+\setbeamercolor*{normal text}{fg=black,bg=white}
+\setbeamercolor*{alerted text}{fg=red}
+\setbeamercolor*{example text}{fg=black}
+\setbeamercolor*{structure}{fg=black}
+
+\setbeamercolor*{palette tertiary}{fg=black,bg=black!10}
+\setbeamercolor*{palette quaternary}{fg=black,bg=black!10}
+
+\renewcommand{\(}{\begin{columns}}
+\renewcommand{\)}{\end{columns}}
+\newcommand{\<}[1]{\begin{column}{#1}}
+	\renewcommand{\>}{\end{column}}
+
+%\setbeamersize{text margin left=10mm}
+%\setbeamersize{sidebar width left=5mm}
+
+
+%---------------------------------------------------------------------------------------------------
+% Packages
+%---------------------------------------------------------------------------------------------------
+
+\usepackage{mathpazo}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[english]{babel}
+\selectlanguage{english}
+\usepackage{graphicx}
+\usepackage{grffile}
+\graphicspath{{figures/}}
+\usepackage{float}
+\usepackage{booktabs}
+\usepackage{tabu}
+\usepackage{rotating}
+\usepackage{array}
+\usepackage{multirow}
+\usepackage{url}
+\usepackage{hyperref}
+\usepackage[capitalise,noabbrev,nameinlink]{cleveref}
+\usepackage[nonumberlist,acronym,nomain,nowarn]{glossaries}
+\usepackage[gen]{eurosym}
+\usepackage[center]{caption}
+\captionsetup{font=footnotesize,labelfont=footnotesize}
+\captionsetup[figure]{name=Fig.,indention=0pt}
+\glsdisablehyper
+\makeglossaries
+
+\makeatletter
+\g@addto@macro{\UrlBreaks}{\UrlOrds}
+\makeatother
+
+%\overfullrule=3mm
